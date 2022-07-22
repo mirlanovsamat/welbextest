@@ -10,9 +10,9 @@ const connectionOptions: ConnectionOptions = {
     database: process.env.PSQL_DATABASE,
     host: process.env.PSQL_HOST || DEFAULT_PSQL_HOST,
     port: parseInt(process.env.PSQL_PORT || `${DEFAULT_PSQL_PORT}`),
-    // ssl: {
-    //     rejectUnauthorized: false,
-    // },
+    ssl: {
+        rejectUnauthorized: false,
+    },
     username: process.env.PSQL_USERNAME,
     password: process.env.PSQL_PASSWORD,
     migrations: [__dirname + '/../migrations/*{.ts,.js}'],

@@ -7,10 +7,17 @@ const DEFAULT_PSQL_PORT = 5432
 export const ormconfig: TypeOrmModuleAsyncOptions = {
     imports: [ConfigModule],
     useFactory: (configService: ConfigService): TypeOrmModuleOptions => {
+
+        const database = configService.get<string>('PSQL_DATABASE')
+        
         return {
             type: 'postgres',
             entities: ['dist/**/*.entity.{ts,js}'],
             database: configService.get('PSQL_DATABASE'),
+            url: database,
+            ssl: {
+                rejectUnauthorized: false,
+            },
             host: configService.get('PSQL_HOST') || DEFAULT_PSQL_HOST,
             port: configService.get('PSQL_PORT') || DEFAULT_PSQL_PORT,
             username: configService.get('PSQL_USERNAME'),
