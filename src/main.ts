@@ -4,7 +4,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ensureDir } from 'fs-extra'
 import  * as path from 'app-root-path'
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const uploadFolder = `${path}/uploads`;
 ensureDir(uploadFolder)
 
