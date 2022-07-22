@@ -27,7 +27,7 @@
     "db:drop": "npm run typeorm schema:drop",
     "db:generate": "npm run typeorm migration:generate -- -n",
     "db:run": "npm run typeorm migration:run",
-    "heroku-postbuild": "npm i --force && npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^1.5.1",
